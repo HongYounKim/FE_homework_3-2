@@ -25,12 +25,10 @@ function createCloseSvg() {
   return svg;
 }
 
-// 숫자에 콤마 추가 함수
 function addComma(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// 페이지 내 상품 가격들 콤마 찍기
 function formatPrices() {
   const originPrices = document.querySelectorAll(".product-origin-price");
   originPrices.forEach((elem) => {
@@ -54,7 +52,6 @@ function formatPrices() {
 function updateUI() {
   const selected = Array.from(checkboxes).filter((cb) => cb.checked);
 
-  // 초기화 버튼 상태 및 색상 변경
   resetBtn.disabled = selected.length === 0;
   resetBtn.style.color = selected.length === 0 ? "#DDDDDD" : "#999";
 
@@ -63,7 +60,6 @@ function updateUI() {
     resetPath.setAttribute("fill", selected.length === 0 ? "#DDDDDD" : "#999");
   }
 
-  // 총 개수 합산
   let totalCount = 0;
   selected.forEach((cb) => {
     const countElem = cb.parentElement.querySelector(".category-count");
@@ -71,13 +67,11 @@ function updateUI() {
     totalCount += count;
   });
 
-  // product-bar 내 텍스트 변경 (총 XX건)
   const productBarText = productBar.querySelector(".text");
   if (productBarText) {
     productBarText.textContent = `총 ${totalCount}건`;
   }
 
-  // 선택된 태그 초기화
   selectedTags.innerHTML = "";
 
   if (selected.length === 0) {
@@ -116,15 +110,13 @@ function updateUI() {
   }
 }
 
-// 체크박스 이벤트 등록
 checkboxes.forEach((cb) =>
   cb.addEventListener("change", () => {
     updateUI();
-    formatPrices(); // 선택이 바뀔 때마다 가격 포맷도 갱신
+    formatPrices();
   })
 );
 
-// 초기화 버튼 및 이미지 클릭 초기화
 resetBtn.addEventListener("click", () => {
   checkboxes.forEach((cb) => (cb.checked = false));
   updateUI();
@@ -136,6 +128,5 @@ resetImg.addEventListener("click", () => {
   formatPrices();
 });
 
-// 초기 로딩 시 UI 및 가격 포맷 업데이트
 updateUI();
 formatPrices();
