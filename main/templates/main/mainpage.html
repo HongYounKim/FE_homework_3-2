@@ -6,181 +6,121 @@
   href="{% static 'css/main/main_page.css'%}"
 />
 
-<!-- 코드 작성시, 아래 부분(script 태그 이전)은 전체 삭제하고 작성하세요 -->
+<div class="container">
+  <div class="menu">
+    <div class="menu-page active"><a href="/">인기신상랭킹</a></div>
+    <div class="menu-page"><a href="#">입점특가</a></div>
+    <div class="menu-page"><a href="#">간편한끼</a></div>
+    <div class="menu-page"><a href="#">요즘간식</a></div>
+    <div class="menu-page"><a href="#">주방·리빙</a></div>
+    <div class="menu-page"><a href="#">뷰티</a></div>
+    <div class="menu-page"><a href="#">패션·잡화</a></div>
+  </div>
 
-<!----------------tip!---------------->
-<!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
-<!-- 아래와 같은 형식으로 for문을 사용하여 작성하세요 -->
+  <div class="section">
+    <div class="filter">
+      <div class="filter-bar">
+        <p class="text">필터</p>
+        <div class="filter-reset">
+          <svg
+            class="reset-img"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              class="reset-path"
+              d="M8.18742 17.25C6.75686 16.8472 5.5902 16.059 4.68742 14.8854C3.78464 13.7118 3.33325 12.3611 3.33325 10.8333C3.33325 10.0417 3.4652 9.28819 3.72909 8.57292C3.99297 7.85764 4.36797 7.20139 4.85409 6.60417C5.00686 6.4375 5.19436 6.35069 5.41659 6.34375C5.63881 6.33681 5.8402 6.42361 6.02075 6.60417C6.17353 6.75694 6.25339 6.94444 6.26034 7.16667C6.26728 7.38889 6.19436 7.59722 6.04159 7.79167C5.70825 8.22222 5.45131 8.69444 5.27075 9.20833C5.0902 9.72222 4.99992 10.2639 4.99992 10.8333C4.99992 11.9583 5.32978 12.9618 5.9895 13.8438C6.64922 14.7257 7.49992 15.3264 8.54158 15.6458C8.72214 15.7014 8.87145 15.8056 8.9895 15.9583C9.10756 16.1111 9.16658 16.2778 9.16658 16.4583C9.16658 16.7361 9.06936 16.9549 8.87492 17.1146C8.68047 17.2743 8.45131 17.3194 8.18742 17.25ZM11.8124 17.25C11.5485 17.3194 11.3194 17.2708 11.1249 17.1042C10.9305 16.9375 10.8333 16.7153 10.8333 16.4375C10.8333 16.2708 10.8923 16.1111 11.0103 15.9583C11.1284 15.8056 11.2777 15.7014 11.4583 15.6458C12.4999 15.3125 13.3506 14.7083 14.0103 13.8333C14.6701 12.9583 14.9999 11.9583 14.9999 10.8333C14.9999 9.44444 14.5138 8.26389 13.5416 7.29167C12.5694 6.31944 11.3888 5.83333 9.99992 5.83333H9.93742L10.2708 6.16667C10.4235 6.31944 10.4999 6.51389 10.4999 6.75C10.4999 6.98611 10.4235 7.18056 10.2708 7.33333C10.118 7.48611 9.92353 7.5625 9.68742 7.5625C9.45131 7.5625 9.25686 7.48611 9.10408 7.33333L7.35409 5.58333C7.27075 5.5 7.21172 5.40972 7.177 5.3125C7.14228 5.21528 7.12492 5.11111 7.12492 5C7.12492 4.88889 7.14228 4.78472 7.177 4.6875C7.21172 4.59028 7.27075 4.5 7.35409 4.41667L9.10408 2.66667C9.25686 2.51389 9.45131 2.4375 9.68742 2.4375C9.92353 2.4375 10.118 2.51389 10.2708 2.66667C10.4235 2.81944 10.4999 3.01389 10.4999 3.25C10.4999 3.48611 10.4235 3.68056 10.2708 3.83333L9.93742 4.16667H9.99992C11.861 4.16667 13.4374 4.8125 14.7291 6.10417C16.0208 7.39583 16.6666 8.97222 16.6666 10.8333C16.6666 12.3472 16.2152 13.6944 15.3124 14.875C14.4096 16.0556 13.243 16.8472 11.8124 17.25Z"
+              fill="#DDDDDD"
+            />
+          </svg>
+          <button id="resetBtn" class="reset-text">초기화</button>
+        </div>
+      </div>
+      <div class="category-box">
+        <div class="category-bar">
+          <p class="text">카테고리</p>
+          <img
+            class="category-img"
+            src="/static/assets/icons/up.svg"
+            alt="up image"
+          />
+        </div>
+        <div class="categories">
+          <div class="category">
+            <input class="category-input" type="checkbox" />
+            <p class="category-item">스킨케어·메이크업</p>
+            <p class="category-count">68</p>
+          </div>
+          <div class="category">
+            <input class="category-input" type="checkbox" />
+            <p class="category-item">럭셔리뷰티</p>
+            <p class="category-count">40</p>
+          </div>
+          <div class="category">
+            <input class="category-input" type="checkbox" />
+            <p class="category-item">간식·과자·떡</p>
+            <p class="category-count">28</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<!-- 데이터 사용 예시 -->
-<body class="body">
-  <div class="middle-nav">
-    <div class="category-conatainer">
-      <div class="tag"></div>
-      <div class="Frame3">
-        <div class="Frame3-select">인기신상랭킹</div>
-        <div class="Frame3-select">입점특가</div>
-        <div class="Frame3-select">간편한끼</div>
-        <div class="Frame3-select">요즘간식</div>
-        <div class="Frame3-select">주방·리빙</div>
-        <div class="Frame3-select">뷰티</div>
-        <div class="Frame3-select">패션·잡화</div>
+    <div class="products">
+      <div class="product-bar">
+        <p class="text">총 508건</p>
+        <div class="product-filter">
+          <p class="text active" style="color: black">추천순</p>
+          <p>|</p>
+          <p class="sort-text">산성품순</p>
+          <p>|</p>
+          <p class="sort-text">판매량순</p>
+          <p>|</p>
+          <p class="sort-text">혜택순</p>
+          <p>|</p>
+          <p class="sort-text">낮은 가격순</p>
+          <p>|</p>
+          <p class="sort-text">높은 가격순</p>
+        </div>
+      </div>
+
+      <div class="selected-tags" style="display: none"></div>
+
+      <div class="product">
+        {% for product in products %}
+        <a href="product/{{product.id}}">
+          <img class="product-img" src="/static/assets/images/maenggu.png" />
+          <div class="product-cart">
+            <img
+              class="product-cart-img"
+              src="/static/assets/icons/cart.svg"
+              alt="cart image"
+            />
+            <p class="product-cart-text">담기</p>
+          </div>
+          <div class="product-info">
+            <p class="product-tag">샛별배송</p>
+            <p class="product-name">{{product}}</p>
+            <p class="product-description">{{product.description}}</p>
+            <div class="product-price">
+              <p class="product-origin-price">{{product.origin_price}}원</p>
+              <div class="product-discount">
+                <p class="product-discountrate">{{product.discount_rate}}%</p>
+                <p class="product-discountprice">
+                  {{product.discount_price}}원
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
       </div>
     </div>
   </div>
+</div>
 
-  <div class="bottom">
-    <div class="Frame7">
-      <div class="head1">
-        <div class="filter">필터</div>
-        <div class="초기화버튼">
-          <div class="icon-reset">
-            <svg
-              class="reset"
-              xmlns="http://www.w3.org/2000/svg"
-              width="6"
-              height="6"
-              viewBox="0 0 6 6"
-              fill="none"
-            >
-              <path
-                d="M2.56391 4.70684C2.21968 4.60992 1.93895 4.42026 1.72172 4.13786C1.50449 3.85546 1.39587 3.53045 1.39587 3.16283C1.39587 2.97233 1.42762 2.79103 1.49112 2.61891C1.55462 2.4468 1.64485 2.28889 1.76182 2.14518C1.79859 2.10508 1.8437 2.08419 1.89718 2.08252C1.95065 2.08085 1.99911 2.10174 2.04255 2.14518C2.07932 2.18194 2.09853 2.22706 2.1002 2.28053C2.10187 2.33401 2.08433 2.38414 2.04757 2.43092C1.96736 2.53453 1.90553 2.64816 1.86208 2.77181C1.81864 2.89546 1.79692 3.0258 1.79692 3.16283C1.79692 3.43353 1.87629 3.67499 2.03503 3.88721C2.19378 4.09943 2.39848 4.24397 2.64913 4.32083C2.69258 4.3342 2.7285 4.35927 2.75691 4.39603C2.78532 4.43279 2.79952 4.4729 2.79952 4.51634C2.79952 4.58318 2.77613 4.63582 2.72934 4.67425C2.68255 4.71268 2.62741 4.72355 2.56391 4.70684ZM3.43617 4.70684C3.37268 4.72355 3.31753 4.71185 3.27074 4.67175C3.22396 4.63164 3.20056 4.57817 3.20056 4.51133C3.20056 4.47122 3.21477 4.43279 3.24317 4.39603C3.27158 4.35927 3.30751 4.3342 3.35095 4.32083C3.6016 4.24063 3.8063 4.09525 3.96505 3.8847C4.12379 3.67415 4.20317 3.43353 4.20317 3.16283C4.20317 2.82862 4.0862 2.54455 3.85225 2.31061C3.61831 2.07667 3.33424 1.9597 3.00004 1.9597H2.985L3.06521 2.03991C3.10197 2.07667 3.12035 2.12346 3.12035 2.18027C3.12035 2.23709 3.10197 2.28388 3.06521 2.32064C3.02845 2.3574 2.98166 2.37578 2.92485 2.37578C2.86803 2.37578 2.82124 2.3574 2.78448 2.32064L2.36339 1.89954C2.34334 1.87949 2.32913 1.85777 2.32078 1.83438C2.31242 1.81098 2.30824 1.78592 2.30824 1.75918C2.30824 1.73244 2.31242 1.70738 2.32078 1.68398C2.32913 1.66059 2.34334 1.63887 2.36339 1.61882L2.78448 1.19772C2.82124 1.16096 2.86803 1.14258 2.92485 1.14258C2.98166 1.14258 3.02845 1.16096 3.06521 1.19772C3.10197 1.23448 3.12035 1.28127 3.12035 1.33809C3.12035 1.3949 3.10197 1.44169 3.06521 1.47845L2.985 1.55866H3.00004C3.44787 1.55866 3.82719 1.71406 4.138 2.02487C4.4488 2.33568 4.60421 2.715 4.60421 3.16283C4.60421 3.52711 4.49559 3.85128 4.27836 4.13535C4.06113 4.41942 3.7804 4.60992 3.43617 4.70684Z"
-                fill="#DDDDDD"
-              />
-            </svg>
-          </div>
-          <h5 class="초기화">초기화</h5>
-        </div>
-      </div>
-
-      <div class="category-select">
-        <div class="head2">
-          <div class="카테고리">카테고리</div>
-          <div class="icon-up">
-            <img class="up" src="{% static 'assets/icons/up.svg' %}" />
-          </div>
-        </div>
-
-        <div class="Frame8">
-          <div class="sidebarnav">
-            <input type="checkbox" />
-            <div class="체크박스">스킨케어·메이크업</div>
-            <div class="수량">68</div>
-          </div>
-
-          <div class="sidebarnav">
-            <input type="checkbox" />
-            <div class="체크박스">럭셔리뷰티</div>
-            <div class="수량">40</div>
-          </div>
-
-          <div class="sidebarnav">
-            <input type="checkbox" />
-            <div class="체크박스">간식·과자·떡</div>
-            <div class="수량">28</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="Frame10">
-      <div class="SortingBar">
-        <div class="total">총 508건</div>
-        <div class="SortingMenu">
-          <div class="SortingMenu_items">추천순</div>
-          <div class="SortingMenu_items">산성품순</div>
-          <div class="SortingMenu_items">판매량순</div>
-          <div class="SortingMenu_items">혜택순</div>
-          <div class="SortingMenu_items">낮은 가격순</div>
-          <div class="SortingMenu_items">높은 가격순</div>
-        </div>
-      </div>
-
-      <div class="card-container">
-        <!-- 카드 1 -->
-        <div class="card">
-          <div class="cart-picture">
-            <img class="maenggu" src="{% static 'assets/images/image.png' %}" />
-          </div>
-
-          <div class="cart-word">
-            <div class="cart-button">
-              <img
-                class="cart"
-                src="{% static 'assets/icons/cart.svg' %}"
-              />담기
-            </div>
-          </div>
-
-          <div class="card-bottom">
-            <p class="delivery">샛별배송</p>
-            <p class="product-name">상품의 제목</p>
-            <p class="product-desc">상품의 소개</p>
-            <p class="price">원래 값 원</p>
-            <p class="price-line">
-              <span class="discount">할인 퍼센트 %</span>
-              <span class="sale-price"> 할인된 값 원</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- 카드 2 -->
-        <div class="card">
-          <div class="cart-picture">
-            <img class="maenggu" src="{% static 'assets/images/image.png' %}" />
-          </div>
-          <div class="cart-word">
-            <div class="cart-button">
-              <img
-                class="cart"
-                src="{% static 'assets/icons/cart.svg' %}"
-              />담기
-            </div>
-          </div>
-
-          <div class="card-bottom">
-            <p class="delivery">샛별배송</p>
-            <p class="product-name">[기꼬만] 일본 두유 7종 (200mL × 6개입)</p>
-            <p class="product-desc">단새롭게 즐기는 두유</p>
-            <p class="price">7500원</p>
-            <p class="price-line">
-              <span class="discount">14%</span>
-              <span class="sale-price">6400원</span>
-            </p>
-          </div>
-        </div>
-
-        <!-- 카드 3 -->
-        <div class="card">
-          <div class="cart-picture">
-            <img class="maenggu" src="{% static 'assets/images/image.png' %}" />
-          </div>
-          <div class="cart-word">
-            <div class="cart-button">
-              <img
-                class="cart"
-                src="{% static 'assets/icons/cart.svg' %}"
-              />담기
-            </div>
-          </div>
-
-          <div class="card-bottom">
-            <p class="delivery">샛별배송</p>
-            <p class="product-name">NEW! 5월 신상간식 7종 (택1)</p>
-            <p class="product-desc">놓칠 수 없는 트렌드 간식</p>
-            <p class="price">1900원</p>
-            <p class="price-line">
-              <span class="discount">10%</span>
-              <span class="sale-price">1780원</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
-<!-- 데이터 사용 예시 -->
-
-<!— js 파일 —>
+<!-- js 파일 -->
 <script src="{% static 'js/main/main_page.js'%}"></script>
 {% endblock %}

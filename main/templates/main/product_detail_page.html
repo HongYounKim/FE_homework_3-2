@@ -12,11 +12,57 @@
 <!-- 아래와 같은 형식으로 사용하세요 -->
 
 <!-- 데이터 사용 예시 -->
-<img src="{{product.image_url}}" style="width: 100px" />
-<p>{{product.name}}</p>
-<p>{{product.discount_rate}}%</p>
-<p>{{product.discount_price}} 원</p>
-<p>{{product.notice}}</p>
+<div class="body-container">
+  <div class="body">
+    <div class="product-intro">
+      <img class="product-img" src="/static/assets/images/maenggu.png" />
+      <div class="Frame31">
+        <div class="Frame39">
+          <p class="product-tag">샛별배송</p>
+          <p class="product-detail-name">{{product.name}}</p>
+          <div class="product-detail-discount">
+            <p class="product-detail-discountrate">
+              {{product.discount_rate}}%
+            </p>
+            <p class="product-detail-discountprice">
+              {{product.discount_price}} 원
+            </p>
+          </div>
+          <div class="line"></div>
+          <div class="Frame-product-info">
+            <div class="product-select">안내사항</div>
+            <p class="product-detail-notice">{{product.notice}}</p>
+          </div>
+          <div class="line"></div>
+          <div class="Frame-product-choose">
+            <div class="product-select">상품 선택</div>
+            <div class="set-count">
+              <div class="small-product-detail-name">{{product.name}}</div>
+              <div class="counter">
+                <button class="minus-btn">-</button>
+                <span class="quantity">1</span>
+                <button class="plus-btn">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="Frame38">
+          <div class="total-column">
+            <div class="total-row">
+              <div class="총상품금액">총 상품 금액:</div>
+              <div class="total-prize"></div>
+            </div>
+          </div>
+          <div class="login-button">
+            <div class="login">로그인</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- 데이터 사용 예시 -->
 
 <script src="{% static 'js/main/product_detail_page.js'%}"></script>
