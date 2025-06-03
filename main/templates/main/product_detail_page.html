@@ -66,4 +66,70 @@
 <!-- 데이터 사용 예시 -->
 
 <script src="{% static 'js/main/product_detail_page.js'%}"></script>
+<div class="screen">
+  <div
+    style="
+      width: 1050px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0px;
+    "
+  >
+    <!-- 여기에 후기를 작성하는 폼을 만들어주세요! -->
+
+    <form action="create_comment/" method="POST">
+      {% csrf_token %}
+      <label for="product-comment">상품 후기</label>
+      <input id="text_area" type="textarea" name="content" />
+      <select class="product-comment" name="star">
+        <option value="별점" selected>별점</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button type="submit">
+        <input id="button_click" type="submit" value="등록" disabled />
+      </button>
+    </form>
+
+    {% for comment in comments %}
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 8px;
+        border-bottom: solid 1px #d9d9d9;
+      "
+    >
+      <div style="display: flex; justify-content: space-between">
+        <p>평점:{{comment.star}}</p>
+        <a href="{% url 'main:delete_comment' comment.id %}">삭제</a>
+      </div>
+      <p class="B1">{{comment.content}}</p>
+    </div>
+    {% endfor%}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const disableBtn = document.getElementById("button_click");
+    const text = document.getElementById("text_area");
+
+    text.addEventListener("input", (event) => {
+      if (text.value.trim().length > 0) {
+        disableBtn.disabled = false;
+        disableBtn.style.backgroundColor = "#5e0080";
+        disableBtn.style.color = "white";
+      } else {
+        disableBtn.disabled = true;
+        disableBtn.style.backgroundColor = "#dddddd";
+      }
+    });
+  });
+</script>
 {% endblock %}

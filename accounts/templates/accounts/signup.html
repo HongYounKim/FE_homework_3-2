@@ -1,6 +1,84 @@
 <!-- 임시 회원가입 페이지 -->
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/accounts/signup.css'%}"
+/>
+
 <div class="container">
-  <h2>회원가입</h2>
+  <div class="signup-box">
+    <div class="signup">회원가입</div>
+    <div class="line1"></div>
+
+    <div class="input-list">
+      <form action="{% url 'accounts:signup' %}" method="POST" class="input">
+        <div class="signup-input">
+          <label class="input-title" for="user-id">아이디</label>
+          <div class="input-box">
+            <div class="id-input-box">
+              <input
+                type="text"
+                id="user-id"
+                name="username"
+                placeholder="아이디를 입력해주세요"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-input">
+          <label class="input-title" for="user-pw">비밀번호</label>
+          <div class="input-box">
+            <div class="pw-input-box">
+              <input
+                type="password"
+                id="user-pw"
+                name="password"
+                placeholder="비밀번호를 입력해주세요"
+                required
+              />
+            </div>
+            <div class="signup-condition">
+              · 비밀번호를 8자 이상으로 작성해주세요.<br />
+              · 영문 대소문자, 숫자, 특수문자를 하나 이상 포함해주세요.<br />
+              · 사용가능 특수문자 @ ! ? - _
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-input">
+          <label class="input-title" for="user-pwcheck">비밀번호 확인</label>
+          <div class="input-box">
+            <div class="pwcheck-input-box">
+              <input
+                type="password"
+                id="user-pw-check"
+                name="password2"
+                placeholder="비밀번호를 한번 더 입력해주세요"
+                required
+              />
+            </div>
+            <div class="pwcheck-fail">비밀번호가 일치하지 않습니다!</div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="line2"></div>
+  </div>
+
+  <button
+    type="submit"
+    id="reBtn"
+    onclick="location.href='{% url 'main:mainpage' %}'"
+    disabled
+  >
+    가입하기
+  </button>
 </div>
+
+<script src="{% static 'js/accounts/signup.js'%}"></script>
 {% endblock %}
